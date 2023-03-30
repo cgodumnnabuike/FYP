@@ -1,4 +1,10 @@
 import { createApp } from "vue";
+import 'bootstrap';
 import Welcome from "./Welcome.vue";
 
-createApp(Welcome).mount("#app");
+
+const app = createApp({});
+app.component('welcome', Welcome);
+
+app.mount('#app');
+
