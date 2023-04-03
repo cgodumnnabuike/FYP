@@ -13,8 +13,6 @@
     </head>
 
     <body class="antialiased">
-        <div id="app">
-            <welcome></welcome>
-        </div>
+       
     </body>
 </html>
