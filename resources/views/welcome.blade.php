@@ -18,7 +18,7 @@
     {{-- Navigation Bar --}}
     <nav class="navbar navbar-expand-sm fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html">HOME</a>
+            <a class="navbar-brand" href="/index.html">EMA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span id="menu-icon" class="navbar-toggler-icon"></span>
@@ -51,7 +51,13 @@
             </div>
         </div>
     </nav>
-    
+
+    {{-- Header --}}
+    <div class="container text-center m-y">
+        <div class="row">
+          <div class="col-sm">
+            <h1 id="heading"> Your journey with us starts here </h1>
+          </div>
 </body>
 
 </html>

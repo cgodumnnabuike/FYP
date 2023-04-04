@@ -12,6 +12,7 @@ $neutral-color1: #ffffff;
 $neutral-color2: #f2f2f2;
 // 3. Component colors
 $body-bg:$neutral-color2;
+$headings-color: $secondary-color;
 
 
 
@@ -32,7 +33,7 @@ $body-bg:$neutral-color2;
 @import "../node_modules/bootstrap/scss/images";
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
-// @import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/buttons";
 @import "../node_modules/bootstrap/scss/navbar";
 @import "../node_modules/bootstrap/scss/offcanvas";
@@ -46,5 +47,11 @@ $body-bg:$neutral-color2;
 // 8. Add additional custom code here
 
 .navbar{
-    background-color: $neutral-color2;
+    background-color: $neutral-color1;
+}
+#heading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
