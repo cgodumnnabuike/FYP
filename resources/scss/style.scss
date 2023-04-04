@@ -38,6 +38,7 @@ $headings-color: $secondary-color;
 @import "../node_modules/bootstrap/scss/navbar";
 @import "../node_modules/bootstrap/scss/offcanvas";
 @import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/transitions";
 
 
@@ -54,4 +55,8 @@ $headings-color: $secondary-color;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.btn1{
+    color: $primary-color;
+    border-color: $accent-color;
 }

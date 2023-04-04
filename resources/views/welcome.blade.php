@@ -10,7 +10,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-  
+
     @vite(['resources/scss/style.scss', 'resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -27,8 +27,7 @@
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close">
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
                         <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
@@ -53,11 +52,41 @@
     </nav>
 
     {{-- Header --}}
-    <div class="container text-center m-y">
+    <div class="container-sm text-center display-1">
         <div class="row">
-          <div class="col-sm">
-            <h1 id="heading"> Your journey with us starts here </h1>
-          </div>
+            <div class="col-sm" id="heading">
+                <h1> Your journey with us starts here </h1>
+                <button class="btn btn-primary btn1 " type="submit">Start your journey</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-sm text-center">
+        <div class="row">
+            <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+            </div>
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
