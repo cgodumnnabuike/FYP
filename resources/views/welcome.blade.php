@@ -52,41 +52,42 @@
     </nav>
 
     {{-- Header --}}
-    <div class="container-sm text-center display-1">
+    <div class="container-sm">
         <div class="row">
-            <div class="col-sm" id="heading">
+            <div class="col-sm text-center display-1" id="heading">
                 <h1> Your journey with us starts here </h1>
                 <button class="btn btn-primary btn1 " type="submit">Start your journey</button>
             </div>
-
         </div>
-    </div>
-
-    <div class="container-sm text-center">
-        <div class="row">
-            <div class="col-sm">
+        
+        <div class="cointainer">
+            <div class="row" id="cont1">
+                <div class="col-sm mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                This is some text within a card body.
+                            </div>
+                        </div>
+                </div>
+                <div class="col-sm mb-4">
                     <div class="card">
                         <div class="card-body">
                             This is some text within a card body.
                         </div>
                     </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
-                    </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="card">
-                    <div class="card-body">
-                        This is some text within a card body.
+                <div class="col-sm mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+   
     </div>
+
 </body>
 
 </html>
