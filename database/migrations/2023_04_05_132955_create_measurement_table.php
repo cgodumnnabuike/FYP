@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('measurement', function (Blueprint $table) {
             $table->id();
-            $table->string('Firstname');
-            $table->string('LastName');
-            $table->string('Email')->unique();
-            $table->timestamp('Email_verifield_at')->nullable();
-            $table->string('Password');
+            $table->unsignedBigInteger('meter_id');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('measurement');
     }
 };
