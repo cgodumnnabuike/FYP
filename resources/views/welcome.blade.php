@@ -16,7 +16,7 @@
 
 <body>
     {{-- Navigation Bar --}}
-    <nav class="navbar navbar-expand-sm fixed-top">
+    <nav class="navbar navbar-expand-sm fixed-top bg-gray-150">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">EMA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -52,15 +52,20 @@
     </nav>
 
     {{-- Header --}}
-    <div class="container-sm">
-        <div class="row">
-            <div class="col-sm text-center display-1" id="heading">
-                <h1> Your journey with us starts here </h1>
-                <button class="btn btn-primary btn1 " type="submit">Start your journey</button>
+    <section class="text-light bg-blue p-5 text-center">
+        <div class="container-sm">
+            <div class="row">
+                <div class="col-sm text-center display-1" id="heading">
+                    <h1> Your journey with us starts here </h1>
+                    <button class="btn btn-primary btn1 " type="submit">Start your journey</button>
+                </div>
             </div>
         </div>
-        
-        <div class="cointainer">
+    </section>
+
+    {{-- Cards --}}
+    <section class="p-5">
+        <div class="container">
             <div class="row" id="cont1">
                 <div class="col-sm mb-4">
                         <div class="card">
@@ -85,9 +90,17 @@
                 </div>
             </div>
         </div>
-   
-    </div>
+    </section>
+    {{-- footer --}}
 
+    <footer class="text-center position-relative bg-white py-3">
+        <div class="container-fluid">
+            <div>
+                <p>Designed for you to save</p>
+                <p class="lead"> Copyright &copy; EMA management webapp
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
