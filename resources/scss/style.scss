@@ -55,6 +55,10 @@ $headings-color: $secondary-color;
     color: $neutral-color1;
     background-color: $accent-color;
 }
+.btnregister{
+    color: $neutral-color1;
+    background-color: $accent-color;
+}
 .btn1:hover{
     color: $accent-color;
     background-color: $primary-color;
@@ -65,4 +69,7 @@ $headings-color: $secondary-color;
 }
 .footer{
     background-color: $neutral-color2;
+}
+input {
+    background-color: $primary-color!important;
 }
