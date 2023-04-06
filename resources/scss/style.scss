@@ -5,13 +5,13 @@
 @import "../node_modules/bootstrap/scss/functions";
 
 // 2. Layout colors
-$primary-color: #00aeef;
-$secondary-color: #4db870;
-$accent-color: #f8c300;
+$primary-color: #E0ECDE;
+$secondary-color: #68B2A0;
+$accent-color: #2C6975;
 $neutral-color1: #ffffff;
-$neutral-color2: #f2f2f2;
+$neutral-color2: #CDE0C9;
 // 3. Component colors
-$body-bg:$neutral-color2;
+$body-bg:$primary-color;
 $headings-color: $secondary-color;
 
 
@@ -48,14 +48,21 @@ $headings-color: $secondary-color;
 // 8. Add additional custom code here
 
 .navbar{
-    background-color: $neutral-color1;
+    background-color: $neutral-color2;
 }
 
 .btn1{
-    color: $primary-color;
+    color: $neutral-color1;
+    background-color: $accent-color;
+}
+.btn1:hover{
+    color: $accent-color;
+    background-color: $primary-color;
     border-color: $accent-color;
 }
-
+.ntn-close::before{
+    content: '\00d7';
+}
 .footer{
-    background-color: $neutral-color1;
+    background-color: $neutral-color2;
 }

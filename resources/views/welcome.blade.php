@@ -27,8 +27,7 @@
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i class="bi bi-x-lg"></i>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">X
                     </button>
                 </div>
                 <div class="offcanvas-body">
@@ -57,7 +56,7 @@
             <div class="row">
                 <div class="col-sm text-center display-1" id="heading">
                     <h1> Your journey with us starts here </h1>
-                    <button class="btn btn-primary btn1 " type="submit">Start your journey</button>
+                    <button class=" btn btn1 " type="btn">Start your journey</button>
                 </div>
             </div>
         </div>
@@ -93,7 +92,7 @@
     </section>
     {{-- footer --}}
 
-    <footer class="text-center position-relative bg-white py-3">
+    <footer class="text-center position-relative footer py-3">
         <div class="container-fluid">
             <div>
                 <p>Designed for you to save</p>
