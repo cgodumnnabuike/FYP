@@ -18,7 +18,7 @@
     {{-- Navigation Bar --}}
     <nav class="navbar navbar-expand-sm fixed-top bg-gray-150">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/index.html">EMA</a>
+            <a class="navbar-brand" href="/welcome.html">EMA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span id="menu-icon" class="navbar-toggler-icon"></span>
@@ -36,10 +36,10 @@
                             <a class="nav-link active" aria-current="page" href="/index.html">Why to choose EMA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/names.html">Register</a>
+                            <a class="nav-link active" href="/register">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#section-c">Login</a>
+                            <a class="nav-link active" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="#section-c">About Us</a>
