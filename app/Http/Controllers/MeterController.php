@@ -16,15 +16,15 @@ class MeterController extends Controller
     {
         $user = auth()->user();
 
-        return view('meters/index')
-        ->with('meters', $meters);
+        return view('meters/index');
+        // ->with('meters', $meters);
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view ('meters/create');
     }
 
     /**
