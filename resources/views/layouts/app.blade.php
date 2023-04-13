@@ -15,22 +15,30 @@
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/scss/style.scss' ])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen dark:bg-gray-900">
+        <div class="min-h-screen dark:bg-gray-900 ">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
-            @if (isset($header))
+             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
-                </header>
+                </header> 
             @endif
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                {{$slot}}
             </main>
         </div>
+         <footer class="text-center position-relative footer py-3">
+        <div class="container-fluid">
+            <div>
+                <p>Designed for you to save</p>
+                <p class="lead"> Copyright &copy; EMA management webapp
+            </div>
+        </div>
+    </footer>
     </body>
 </html>

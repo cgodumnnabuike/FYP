@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\MeterController;
 use Illuminate\Support\Facades\Route;
+
+use App\Models\Meter;
+use App\Model\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 require __DIR__.'/auth.php';
+
+Route::resource('/meters', MeterController::class);
