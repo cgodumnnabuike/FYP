@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/scss/style.scss' ])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen dark:bg-gray-900">
+        <div class="min-h-screen dark:bg-gray-900 ">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -29,8 +29,16 @@
 
             <!-- Page Content -->
             <main>
-                @yield('content')
+                {{$slot}}
             </main>
         </div>
+         <footer class="text-center position-relative footer py-3">
+        <div class="container-fluid">
+            <div>
+                <p>Designed for you to save</p>
+                <p class="lead"> Copyright &copy; EMA management webapp
+            </div>
+        </div>
+    </footer>
     </body>
 </html>
