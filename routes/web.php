@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MeterController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Meter;
+use App\Model\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +22,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('meters', function () {
+    return view('meters');
+})->middleware(['auth', 'verified'])->name('meters');
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

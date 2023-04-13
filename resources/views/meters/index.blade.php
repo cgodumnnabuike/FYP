@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('slot')
+@section('content')
 
 <a class="btn btn-primary" href="{{route('meters.create')}}" role="button">Link</a>
 
