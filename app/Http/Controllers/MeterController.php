@@ -32,7 +32,24 @@ class MeterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //This will check if the user is authenticated
+        $user = auth::user();
+
+        $request->validate([
+            'Location' => 'required',
+        ]);
+          
+        Meter::create([
+            'user_id' => auth()->user()->id,
+            'name' => $request->name,
+            'description' => $request->description
+        ]);
+
+        // $user->meter()->save($meter);
+
+        // return redirect()->route('meters.index')
+        // ->with('success', 'Task created successfully');
+
     }
 
     /**
