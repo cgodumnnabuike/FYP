@@ -93,6 +93,8 @@ class MeterController extends Controller
      */
     public function destroy(Meter $meter)
     {
-        //
+        $meter->delete();
+        
+        return redirect()->route('meters.index')->with('success', 'Meter deleted successfully');
     }
 }
