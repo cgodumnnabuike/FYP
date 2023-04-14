@@ -40,6 +40,8 @@ $headings-color: $secondary-color;
 @import "../node_modules/bootstrap/scss/close";
 @import "../node_modules/bootstrap/scss/card";
 @import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/alert";
 
 
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
@@ -72,4 +74,39 @@ $headings-color: $secondary-color;
 }
 input {
     background-color: $primary-color!important;
+}
+.table-scroll {
+    max-height: 200px;
+    overflow-y: auto;
+    display: block;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.alert-info{
+background-color: $secondary-color;
+color: $neutral-color1;
+border-color:$secondary-color ;
 }

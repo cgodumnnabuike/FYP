@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Meter;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
 use Illuminate\Validation\Rule;
 
 class MeterController extends Controller
@@ -15,16 +15,16 @@ class MeterController extends Controller
     public function index()
     {
         $user = auth()->user();
-
-        return view('meters/index');
-        // ->with('meters', $meters);
+        $meters = $user->meters;
+        return view('meters.index')
+        ->with('meters', $meters);
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view ('meters/create');
+        return view ('meters.create');
     }
 
     /**
@@ -32,7 +32,23 @@ class MeterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //This will check if the user is authenticated
+        $user = auth::user();
+
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+        ]);
+          
+        Meter::create([
+            'user_id' => auth()->user()->id,
+            'name' => $request->name,
+            'location' => $request->location
+        ]);
+
+        return redirect()->route('meters.index')
+        ->with('success', 'meter created successfully');
+
     }
 
     /**
@@ -40,7 +56,10 @@ class MeterController extends Controller
      */
     public function show(Meter $meter)
     {
-        //
+        return view ('meters.show') 
+        ->with([
+            'meter' => $meter
+        ]);
     }
 
     /**
@@ -48,7 +67,10 @@ class MeterController extends Controller
      */
     public function edit(Meter $meter)
     {
-        //
+        return view('meters.edit')
+        ->with([
+                'meter' => $meter
+        ]);   
     }
 
     /**
@@ -56,7 +78,14 @@ class MeterController extends Controller
      */
     public function update(Request $request, Meter $meter)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required'
+            ]);
+
+        $meter->update($request->all());
+        return redirect('meters')
+        ->with('success', 'Meter updated successfully');
     }
 
     /**
@@ -64,6 +93,8 @@ class MeterController extends Controller
      */
     public function destroy(Meter $meter)
     {
-        //
+        $meter->delete();
+        
+        return redirect()->route('meters.index')->with('success', 'Meter deleted successfully');
     }
 }
