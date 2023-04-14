@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
     @if(session()->has('success'))
             {{session()->get('success')}}
     @elseif($errors->any())
@@ -6,4 +6,11 @@
             {{$error}}
         @endforeach
     @endif
-</div>
+</div> --}}
+
+@if (Session::has('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !</strong> {{session('success')}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+@endif

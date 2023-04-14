@@ -24,7 +24,7 @@ class MeterController extends Controller
      */
     public function create()
     {
-        return view ('meters/create');
+        return view ('meters.create');
     }
 
     /**
@@ -78,7 +78,14 @@ class MeterController extends Controller
      */
     public function update(Request $request, Meter $meter)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required'
+            ]);
+
+        $meter->update($request->all());
+        return redirect('meters')
+        ->with('success', 'Meter updated successfully');
     }
 
     /**
