@@ -9,6 +9,16 @@ class Meter extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Location'
+        'name',
+        'location',
+        'user_id',
     ];
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

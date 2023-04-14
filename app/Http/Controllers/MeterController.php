@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Meter;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Auth;
 use Illuminate\Validation\Rule;
 
 class MeterController extends Controller
@@ -15,9 +15,9 @@ class MeterController extends Controller
     public function index()
     {
         $user = auth()->user();
-
-        return view('meters/index');
-        // ->with('meters', $meters);
+        $meters = $user->meters;
+        return view('meters.index')
+        ->with('meters', $meters);
     }
     /**
      * Show the form for creating a new resource.
@@ -36,19 +36,18 @@ class MeterController extends Controller
         $user = auth::user();
 
         $request->validate([
-            'Location' => 'required',
+            'name' => 'required',
+            'location' => 'required',
         ]);
           
         Meter::create([
             'user_id' => auth()->user()->id,
             'name' => $request->name,
-            'description' => $request->description
+            'location' => $request->location
         ]);
 
-        // $user->meter()->save($meter);
-
-        // return redirect()->route('meters.index')
-        // ->with('success', 'Task created successfully');
+        return redirect()->route('meters.index')
+        ->with('success', 'meter created successfully');
 
     }
 
@@ -57,7 +56,10 @@ class MeterController extends Controller
      */
     public function show(Meter $meter)
     {
-        //
+        return view ('meters.show') 
+        ->with([
+            'meter' => $meter
+        ]);
     }
 
     /**
@@ -65,7 +67,10 @@ class MeterController extends Controller
      */
     public function edit(Meter $meter)
     {
-        //
+        return view('meters.edit')
+        ->with([
+                'meter' => $meter
+        ]);   
     }
 
     /**
