@@ -12,7 +12,10 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        //
+        // $user = auth()->user();
+        // $measurement = $meter->measurement;
+        // return view('measurements.index')
+        // ->with('measurements', $measurements);
     }
 
     /**
