@@ -20,7 +20,7 @@ class MeasurementController extends Controller
      */
     public function create()
     {
-        //
+        return view ('meters.create');
     }
 
     /**
