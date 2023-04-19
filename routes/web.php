@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MeterController;
+use App\Http\Controllers\MeasurementController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Meter;
 use App\Model\User;
+use App\Models\Measurement;
 
 /*
 |--------------------------------------------------------------------------
