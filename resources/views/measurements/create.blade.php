@@ -11,51 +11,33 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <form id="meter-reading-form">
-                                <div class="form-group mb-3">
-                                    <label for="reading">Meter Reading</label>
-                                    <input type="number" name="reading" id="reading" class="form-control" required>
-                                </div>
-                                <button type="submit" class="btn btn1 btn-block mt-3">Submit</button>
-                            </form>
+                          <form method="POST" action="{{ route('measurements.store') }}">
+                            @csrf
+                                <label for="measurement_period">Measurement Period</label>
+                                <input type="text" class="form-control" id="measurement_period" name="measurement_period" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="timestamp">Timestamp</label>
+                                <input type="datetime-local" class="form-control" id="timestamp" name="timestamp" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="consumption_value">Consumption Value</label>
+                                <input type="number" class="form-control" id="consumption_value" name="consumption_value" step="0.01" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="location">Location</label>
+                                <input type="text" class="form-control" id="location" name="location">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                         </div>
                     </div>
-                    <div id="chart"></div>
                 </div>
             </div>
         </div>
     </section>
     
-<script>
-   var options = {
-          series: [{
-          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
-        }],
-          chart: {
-          type: 'bar',
-          height: 350
-        },
-        plotOptions: {
-          bar: {
-            borderRadius: 4,
-            horizontal: true,
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        xaxis: {
-          categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
-            'United States', 'China', 'Germany'
-          ],
-        }
-        };
 
-        var chart = new ApexCharts(document.querySelector("#chart"), options);
-        chart.render();
-      
-       
-</script>
 </x-app-layout>
 
 

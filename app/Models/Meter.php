@@ -21,4 +21,10 @@ class Meter extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function measurement()
+    {
+        return $this->hasMany(Measurement::class);
+    }
+
+
 }
