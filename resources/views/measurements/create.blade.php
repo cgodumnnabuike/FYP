@@ -1,5 +1,5 @@
 <x-app-layout>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <section class="p-5">
         <div class="container text-center">
             <div class="row">
@@ -25,74 +25,37 @@
             </div>
         </div>
     </section>
+    
+<script>
+   var options = {
+          series: [{
+          data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        xaxis: {
+          categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+            'United States', 'China', 'Germany'
+          ],
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+      
+       
+</script>
 </x-app-layout>
-
-
-    <script>
-        const chart = new ApexCharts(document.querySelector("#chart-container"), {
-            series: [],
-            chart: {
-                type: 'bar',
-                height: 350
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '55%',
-                    endingShape: 'rounded'
-                },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            stroke: {
-                show: true,
-                width: 2,
-                colors: ['transparent']
-            },
-            xaxis: {
-                categories: []
-            },
-            yaxis: {
-                title: {
-                    text: 'Reading Value'
-                }
-            },
-            fill: {
-                opacity: 1
-            },
-            tooltip: {
-                y: {
-                    formatter: function (val) {
-                        return val
-                    }
-                }
-            }
-        });
-
-        document.querySelector("#meter-reading-form").addEventListener("submit", (event) => {
-            event.preventDefault();
-
-            const readingValue = document.querySelector("#reading").value;
-
-            if (readingValue === "") {
-                alert("Please enter a reading value.");
-                return;
-            }
-
-            chart.updateSeries([{
-                name: "Reading Value",
-                data: [readingValue]
-            }]);
-
-            chart.updateOptions({
-                xaxis: {
-                    categories: ['']
-                }
-            });
-
-            chart.render();
-        });
-    </script>
 
 
