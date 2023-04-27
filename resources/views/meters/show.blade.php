@@ -13,11 +13,10 @@
                             <h3 class="card-title">{{ $meter->name }}</h3>
                             <p class="card-text"><strong>Location: </strong>{{ $meter->location }}</p>
                             <p class="card-text"><strong>User: </strong>{{ $meter->user->name }}</p>
-                            <a href="{{ route('measurements.create') }}" class="btn btn1">Add Measurement</a>
+                            <a href="{{ route('measurements.index') }}" class="btn btn1">Add Measurement</a>
                         </div>
                     </div>
                 </div>
-                <div id="chart"></div>
             </div>
         </div>
     </section>

@@ -13,7 +13,7 @@
         </div>
         <div class="row mb-3">
           <div class="col">
-            <a href="{{ route('meters.create') }}" class="btn btn-primary">Add Meter</a>
+            <a href="{{ route('meters.create') }}" class="btn btn1">Add Meter</a>
           </div>
         </div>
         <div class="row">
@@ -52,6 +52,7 @@
                                                   @method('DELETE')
                                                   <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-sm" onclick="return confirm('Are you sure you want to delete this meter?')">Delete</button>
                                               </form>
+                                              <a href="{{ route('measurements.index') }}" class="btn btn1">Add Meter reading</a>
                                             </td>
                                           </tr>
                                         @endforeach

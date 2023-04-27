@@ -13,17 +13,21 @@ class MeasurementController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        if (auth()->check()) {
-            $user = auth()->user();
-            if ($user->meter) {
-                $meter = $user->meter;
-                $measurements = $meter->measurements;
-                dd($measurements); // Add this line to check if the measurements data is retrieved
-                return view('measurements.index', compact('measurements'));
-            }
-        }
+{
+    $user = auth()->user();
+    $meter = $user->meter;
+
+    if ($meter) {
+        $measurements = $meter->measurements;
+        return view('measurements.index')->with('measurements', $measurements);
+    } else {
+        return view('measurements.index')->with('measurements', collect()); // Provide an empty collection if no meter is found
     }
+}
+
+    
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -57,7 +61,7 @@ class MeasurementController extends Controller
                 'location' => $request->location
             ]);
             return redirect()->route('measurements.index')
-        ->with('success', 'measurement created successfully');
+            ->with('success', 'measurement created successfully');
 
         }
     }

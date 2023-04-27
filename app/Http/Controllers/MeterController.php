@@ -17,6 +17,7 @@ class MeterController extends Controller
     {
         $user = auth()->user();
         $meters = $user->meters;
+       // dd($meters);
         return view('meters.index')
         ->with('meters', $meters);
     }

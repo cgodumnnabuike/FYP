@@ -1,5 +1,4 @@
 <x-app-layout>
-    
     <section class="p-5">
         <div class="container text-center">
             <div class="row">
