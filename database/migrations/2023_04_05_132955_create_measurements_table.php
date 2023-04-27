@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('measurement', function (Blueprint $table) {
+        Schema::create('measurements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('meter_id');
+            $table->string('measurement_period', 20);
+            $table->timestamp('timestamp');
+            $table->decimal('consumption_value', 10, 2);
+            $table->string('location', 50)->nullable();
             $table->timestamps();
         });
     }

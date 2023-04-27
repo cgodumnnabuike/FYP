@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Meter;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use ArielMejiaDev\LarapexCharts\Facades\LarapexChart;
+use App\Models\Measurement;
+
 
 class MeterController extends Controller
 {
@@ -56,10 +59,25 @@ class MeterController extends Controller
      */
     public function show(Meter $meter)
     {
-        return view ('meters.show') 
-        ->with([
-            'meter' => $meter
-        ]);
+        $measurements = Measurement::where('meter_id', $meter->id)->get();
+    $chartData = [];
+    foreach ($measurements as $measurement) {
+        $chartData[] = [
+            'x' => $measurement->timestamp->format('Y-m-d H:i:s'),
+            'y' => $measurement->consumption_value
+        ];
+    }
+
+    $chart = LarapexChart::lineChart()
+                ->setTitle('Meter Measurements')
+                // ->setXAxisType('datetime')
+                // ->setXAxisFormat('yyyy-MM-dd HH:mm:ss')
+                ->addData('Consumption', $chartData)
+                ->setMarkers(['size' => 5])
+                ->setWidth(1000)
+                ->setHeight(500);
+
+    return view('meters.show', compact('meter', 'chart'));
     }
 
     /**

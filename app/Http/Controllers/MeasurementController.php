@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Measurement;
+use App\Models\Meter;
+use App\Http\Controllers\MeterController;
 use Illuminate\Http\Request;
 
 class MeasurementController extends Controller
@@ -12,7 +14,10 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        //
+        // $user = auth()->user();
+        // $measurement = $meter->measurement;
+        // return view('measurements.index')
+        // ->with('measurements', $measurements);
     }
 
     /**
@@ -20,7 +25,7 @@ class MeasurementController extends Controller
      */
     public function create()
     {
-        //
+        return view ('measurements.create');
     }
 
     /**
@@ -28,7 +33,23 @@ class MeasurementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'measurement_period' => 'required',
+            'timestamp' => 'required',
+            'consumption_value' => 'required',
+            'location' => 'required',
+        ]);
+
+        Measurement::create([
+            // 'meter_id' => meter()->id,
+            'measurement_period' => $request->name,
+            'timestamp' => $request->timestamp,
+            'consumption_value' => $request->consumption_value,
+            'location' => $request->location
+        ]);
+        
+        
+        return redirect()->route('meters.show');
     }
 
     /**
