@@ -14,10 +14,15 @@ class MeasurementController extends Controller
      */
     public function index()
     {
-        // $user = auth()->user();
-        // $measurement = $meter->measurement;
-        // return view('measurements.index')
-        // ->with('measurements', $measurements);
+        if (auth()->check()) {
+            $user = auth()->user();
+            if ($user->meter) {
+                $meter = $user->meter;
+                $measurements = $meter->measurements;
+                dd($measurements); // Add this line to check if the measurements data is retrieved
+                return view('measurements.index', compact('measurements'));
+            }
+        }
     }
 
     /**
@@ -39,19 +44,23 @@ class MeasurementController extends Controller
             'consumption_value' => 'required',
             'location' => 'required',
         ]);
+       
+            $userId = auth()->id();
+        $meter = Meter::where('user_id', $userId)->first();
 
-        Measurement::create([
-            // 'meter_id' => meter()->id,
-            'measurement_period' => $request->name,
-            'timestamp' => $request->timestamp,
-            'consumption_value' => $request->consumption_value,
-            'location' => $request->location
-        ]);
-        
-        
-        return redirect()->route('meters.show');
+        if ($meter) {
+            Measurement::create([
+                'meter_id' => $meter->id,
+                'measurement_period' => $request->measurement_period,
+                'timestamp' => $request->timestamp,
+                'consumption_value' => $request->consumption_value,
+                'location' => $request->location
+            ]);
+            return redirect()->route('measurements.index')
+        ->with('success', 'measurement created successfully');
+
+        }
     }
-
     /**
      * Display the specified resource.
      */

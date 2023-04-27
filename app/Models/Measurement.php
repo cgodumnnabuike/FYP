@@ -9,11 +9,12 @@ class Measurement extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'meter_id',
         'measurement_period',
         'timestamp',
         'consumption_value',
         'location',
-        'meter_id',
+        
     ];
 
     public function meter()
