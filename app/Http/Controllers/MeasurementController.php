@@ -13,17 +13,26 @@ class MeasurementController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $user = auth()->user();
-    $meter = $user->meter;
+    {
+        // $user = auth()->user();
+        // $meters = $user->meters;
+        // // $measurements = $meters->measurements;
+        // return view('measurements.index')->with('meters', $meters);
 
-    if ($meter) {
-        $measurements = $meter->measurements;
-        return view('measurements.index')->with('measurements', $measurements);
-    } else {
-        return view('measurements.index')->with('measurements', collect()); // Provide an empty collection if no meter is found
+        // $user = auth()->user();
+        // $meters = $user->meters()->with('measurements')->get();
+        //  $measurements = collect();
+        // foreach ($meters as $meter) {
+        //  $measurements = $measurements->concat($meter->measurements);
+        //  }
+        // return view('measurements.index', compact('measurements', 'meters'));
+
+        $user = auth()->user();
+        $meters = $user->meters()->with('measurements')->get();
+    
+        return view('measurements.index', compact('meters'));
     }
-}
+    
 
     
 
