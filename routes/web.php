@@ -34,8 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::resource('/meters', MeterController::class);
+Route::resource('/measurements', MeasurementController::class);
+
 
 require __DIR__.'/auth.php';
 
-Route::resource('/meters', MeterController::class);
-Route::resource('/measurements', MeasurementController::class);
