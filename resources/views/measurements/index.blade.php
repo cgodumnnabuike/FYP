@@ -10,6 +10,11 @@
             <h3>
                 <x-alert />
             </h3>
+            <div class="row mb-3">
+                <div class="col">
+                  <a href="{{ route('measurements.create') }}" class="btn btn1">Add Meter reading</a>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     @if ($selectedMeter)
@@ -47,7 +52,8 @@
                                 @endforeach
                             </div>
                             <div class="mt-4">
-                                {{ $measurements->links() }}
+                                {{ $measurements->appends(['meter_id' => $selectedMeter->id])->links() }}
+
                             </div>
                         @endif
                     @else
