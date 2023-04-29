@@ -52,7 +52,7 @@
                                                   @method('DELETE')
                                                   <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-sm" onclick="return confirm('Are you sure you want to delete this meter?')">Delete</button>
                                               </form>
-                                              <a href="{{ route('measurements.index') }}" class="btn btn1">Add Meter reading</a>
+                                              <a href="{{ route('measurements.index', ['meter_id' => $meter->id]) }}" class="btn btn1">Add Meter reading</a>
                                             </td>
                                           </tr>
                                         @endforeach

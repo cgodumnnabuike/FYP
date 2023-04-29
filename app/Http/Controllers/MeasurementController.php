@@ -3,34 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Measurement;
-use App\Models\Meter;
 use App\Http\Controllers\MeterController;
 use Illuminate\Http\Request;
+use App\Models\Meter;
+use Illuminate\Pagination\Paginator;
 
 class MeasurementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         // $user = auth()->user();
-        // $meters = $user->meters;
-        // // $measurements = $meters->measurements;
-        // return view('measurements.index')->with('meters', $meters);
-
-        // $user = auth()->user();
         // $meters = $user->meters()->with('measurements')->get();
-        //  $measurements = collect();
-        // foreach ($meters as $meter) {
-        //  $measurements = $measurements->concat($meter->measurements);
-        //  }
-        // return view('measurements.index', compact('measurements', 'meters'));
+    
+        // return view('measurements.index', compact('meters'));
 
         $user = auth()->user();
         $meters = $user->meters()->with('measurements')->get();
-    
-        return view('measurements.index', compact('meters'));
+        $meterId = $request->input('meter_id');
+        $selectedMeter = $meters->firstWhere('id', $meterId);
+
+        if (!$selectedMeter) {
+            abort(404); // Meter not found
+        }
+
+        $measurements = Measurement::where('meter_id', $selectedMeter->id)->paginate(5);
+        return view('measurements.index', compact('measurements','meters', 'selectedMeter'));   
     }
     
 
@@ -79,15 +79,18 @@ class MeasurementController extends Controller
      */
     public function show(Measurement $measurement)
     {
-        //
+        $meter = $measurement->meter;
+        return view('measurements.show', compact('measurement', 'meter'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Measurement $measurement)
     {
-        //
+        $meter = $measurement->meter;
+        return view('measurements.edit', compact('measurement', 'meter'));
     }
 
     /**
@@ -95,7 +98,17 @@ class MeasurementController extends Controller
      */
     public function update(Request $request, Measurement $measurement)
     {
-        //
+        $request->validate([
+            'measurement_period' => 'required',
+            'timestamp' => 'required',
+            'consumption_value' => 'required',
+            'location' => 'required',
+        ]);
+    
+        $measurement->update($request->all());
+    
+        return redirect()->route('measurements.index', ['meter_id' => $measurement->meter_id])
+        ->with('success', 'Measurement updated successfully');
     }
 
     /**
@@ -103,6 +116,10 @@ class MeasurementController extends Controller
      */
     public function destroy(Measurement $measurement)
     {
-        //
+        $meterId = $measurement->meter_id;
+        $measurement->delete();
+        return redirect()->route('measurements.index', ['meter_id' => $meterId])
+        ->with('success', 'Measurement deleted successfully');
     }
+    
 }

@@ -1,4 +1,4 @@
-  <x-app-layout>
+<x-app-layout>
     <section class="p-5">
         <div class="container text-center">
             <div class="row">
@@ -12,53 +12,52 @@
             </h3>
             <div class="row">
                 <div class="col">
-                    @foreach ($meters as $meter)
-                        <h2>{{ $meter->name }}</h2>
-                        @if ($meter->measurements->isEmpty()) 
+                    @if ($selectedMeter)
+                        <h2>{{ $selectedMeter->name }}</h2>
+                        @if ($measurements->isEmpty()) 
                             <div class="alert alert-info" role="alert">
-                                You don't have any readings yet.
+                                You don't have any readings for this meter.
                             </div>
                         @else
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="table-wrapper-scroll-y table-responsive-sm">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Measurement period</th>
-                                                    <th scope="col">Timestamp</th>
-                                                    <th scope="col">Consumption</th>
-                                                    <th scope="col">Location</th>
-                                                    <th scope="col">Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($meter->measurements as $measurement)
-                                                    <tr>
-                                                        <td>{{ $measurement->measurement_period }}</td>
-                                                        <td>{{ $measurement->timestamp }}</td>
-                                                        <td>{{ $measurement->consumption_value }}</td>
-                                                        <td>{{ $measurement->location }}</td>
-                                                        <td>
-                                                            <a href="{{ route('measurements.show', $measurement->id) }}" class="btn btn-primary btn-rounded btn-fw btn-sm">View</a>
-                                                            <a href="{{ route('measurements.edit', $measurement->id) }}" class="btn btn-secondary btn-rounded btn-fw btn-sm">Edit</a>
-                                                            <form action="{{ route('measurements.destroy', $measurement->id) }}" method="POST" class="d-inline">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-sm" onclick="return confirm('Are you sure you want to delete this measurement?')">Delete</button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                @foreach ($measurements as $measurement)
+                                    <div class="col">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ $measurement->measurement_period }}</h5>
+                                                <p class="card-text">
+                                                    <strong>Timestamp:</strong> {{ $measurement->timestamp }}
+                                                    <br>
+                                                    <strong>Consumption:</strong> {{ $measurement->consumption_value }}
+                                                    <br>
+                                                    <strong>Location:</strong> {{ $measurement->location }}
+                                                </p>
+                                                <div class="text-center">
+                                                    <a href="{{ route('measurements.show', $measurement->id) }}" class="btn btn-primary btn-sm">View</a>
+                                                    <a href="{{ route('measurements.edit', $measurement->id) }}" class="btn btn-secondary btn-sm">Edit</a>
+                                                    <form action="{{ route('measurements.destroy', $measurement->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this measurement?')">Delete</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
+                            </div>
+                            <div class="mt-4">
+                                {{ $measurements->links() }}
                             </div>
                         @endif
-                    @endforeach
+                    @else
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
     </section>
 </x-app-layout>
+
