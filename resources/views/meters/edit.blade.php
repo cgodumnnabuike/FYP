@@ -13,7 +13,7 @@
         </div>
         <div class="row mb-3">
           <div class="col">
-            <a href="{{ route('meters.index') }}" class="btn btn-primary">Back to All Meters</a>
+            <a href="{{ route('meters.index') }}" class="btn btn1">Back to All Meters</a>
           </div>
         </div>
         <div class="row">
@@ -31,7 +31,7 @@
                     <label for="location">Location:</label>
                     <input type="text" class="form-control" id="location" name="location" value="{{ $meter->location }}" required>
                   </div>
-                  <button type="submit" class="btn btn-primary mt-3">Update</button>
+                  <button type="submit" class="btn btn1 mt-3">Update</button>
                 </form>
               </div>
             </div>
