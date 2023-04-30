@@ -15,10 +15,6 @@ class MeasurementController extends Controller
      */
     public function index(Request $request)
     {
-        // $user = auth()->user();
-        // $meters = $user->meters()->with('measurements')->get();
-    
-        // return view('measurements.index', compact('meters'));
 
         $user = auth()->user();
         $meters = $user->meters()->with('measurements')->get();
@@ -69,8 +65,9 @@ class MeasurementController extends Controller
                 'consumption_value' => $request->consumption_value,
                 'location' => $request->location
             ]);
-            return redirect()->route('measurements.index')
-            ->with('success', 'measurement created successfully');
+            return redirect()->route('measurements.index', ['meter_id' => $meter->id])
+    ->with('success', 'Measurement created successfully');
+
 
         }
     }
