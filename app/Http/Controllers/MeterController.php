@@ -17,6 +17,7 @@ class MeterController extends Controller
     {
         $user = auth()->user();
         $meters = $user->meters;
+        $meterCount = $meters->count();
         return view('meters.index')
         ->with('meters', $meters);
     }
