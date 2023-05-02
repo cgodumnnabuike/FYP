@@ -90,13 +90,16 @@
             </div>
         </div>
     </section>
-    {{-- footer --}}
-
-    <footer class="text-center position-relative footer py-3">
-        <div class="container-fluid">
-            <div>
-                <p>Designed for you to save</p>
-                <p class="lead"> Copyright &copy; EMA management webapp
+    
+    <footer>
+        <div class="text-center position-relative footer py-3">
+            <div class = "row">
+                <div class="col-sm">
+                    <div>
+                        <p>Designed for you to save</p>
+                        <p class="lead"> Copyright &copy; EMA management webapp
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
