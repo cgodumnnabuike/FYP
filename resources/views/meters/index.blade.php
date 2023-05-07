@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td colspan="3">
+                                <td colspan="3 ">
                                   <div class="table-scroll">
                                     <table class="table table-bordered">
                                       <tbody>
@@ -47,10 +47,10 @@
                                             <td>
                                               <a href="{{ route('meters.show', $meter->id) }}" class="btn btn-primary btn-rounded btn-fw btn-sm">View</a>
                                               <a href="{{ route('meters.edit', $meter->id) }}" class="btn btn-secondary btn-rounded btn-fw btn-sm">Edit</a>
-                                              <form action="{{ route('meters.destroy', $meter->id) }}" method="POST"      class="d-inline">
-                                                  @csrf
-                                                  @method('DELETE')
-                                                  <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-sm" onclick="return confirm('Are you sure you want to delete this meter?')">Delete</button>
+                                              <form action="{{ route('meters.destroy', $meter->id) }}" method="POST" class="d-inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-rounded btn-fw btn-sm" onclick="return confirm('Are you sure you want to delete this meter?')">Delete</button>
                                               </form>
                                               <a href="{{ route('measurements.index', ['meter_id' => $meter->id]) }}" class="btn btn1">Add Meter reading</a>
                                             </td>
