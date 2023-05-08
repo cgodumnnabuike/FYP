@@ -33,16 +33,13 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index.html">Why to choose EMA</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link active" href="/register">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#section-c">About Us</a>
+                            <a class="nav-link active" href="#section-d">Benefits</a>
                         </li>
                     </ul>
                 </div>
@@ -67,25 +64,36 @@
         <div class="container">
             <div class="row" id="cont1">
                 <div class="col-sm mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                This is some text within a card body.
-                            </div>
+                    <div class="card" style="width: 30rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">Why Us</h5>
+                          <p class="card-text">At EMA, we're committed to helping you save money and reduce your energy impact by providing easy-to-use energy management tools. With our analysis and recommendations, you can feel confident that your're making informed decisions about your energy use.</p>
                         </div>
+                      </div>
                 </div>
                 <div class="col-sm mb-4">
-                    <div class="card">
+                    <div class="card" style="width: 30rem;">
                         <div class="card-body">
-                            This is some text within a card body.
+                          <h5 class="card-title">Key features</h5>
+                          <ul>
+                            <li>Energy trace</li>
+                            <li>Seasonal advice</li>
+                            <li>Numeric consumption data</li>
+                          </ul>
                         </div>
-                    </div>
+                      </div>
                 </div>
                 <div class="col-sm mb-4">
-                    <div class="card">
+                    <div  id="section-d"class="card" style="width: 30rem;">
                         <div class="card-body">
-                            This is some text within a card body.
+                          <h5 class="card-title">Benefits</h5>
+                          <ul>
+                            <li>Reduce Energy Costs</li>
+                            <li>Increased Energy efficiency</li>
+                            <li>Average consumption</li>
+                          </ul>
                         </div>
-                    </div>
+                      </div>
                 </div>
             </div>
         </div>
