@@ -18,7 +18,7 @@
     {{-- Navigation Bar --}}
     <nav class="navbar navbar-expand-sm fixed-top bg-gray-150">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/welcome.html">EMA</a>
+            <a class="navbar-brand" href="/">EMA</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar">
                 <span id="menu-icon" class="navbar-toggler-icon"></span>

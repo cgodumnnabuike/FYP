@@ -28,18 +28,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         $userId = auth()->user()->id;
 
-        // Retrieve the current month and year
+        // Retrieves the current month and year
         $currentMonth = Carbon::now()->month;
         $currentYear = Carbon::now()->year;
 
-        // Retrieve the meters belonging to the user
+        // Retrieves the meters belonging to the user
         $meters = Meter::where('user_id', $userId)->get();
 
         // Initialize variables for the total consumption and count of meters
         $totalConsumption = 0;
         $meterCount = $meters->count();
 
-        // Calculate the total consumption across all meters
+        // Calculates the total consumption across all meters
         foreach ($meters as $meter) {
             $measurements = $meter->measurements()
                 ->whereMonth('timestamp', $currentMonth)
@@ -49,10 +49,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             $totalConsumption += $measurements->sum();
         }
 
-        // Calculate the average consumption per meter
+        // Calculates the average consumption per meter
         $averageConsumption = $meterCount > 0 ? $totalConsumption / $meterCount : 0;
 
-        // Render the dashboard view with the calculated values
+        // Renders the dashboard view with the calculated values
         return view('dashboard', [
             'meterCount' => $meterCount,
             'totalConsumption' => $totalConsumption,

@@ -72,14 +72,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm mb-4">
+                {{-- <div class="col-sm mb-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Energy Consumption Overview</h5>
                             <p class="card-text">Display relevant information about the user's energy consumption, such as current usage, historical data, and trends.</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-sm mb-4">
                     <div class="card">
                         <div class="card-body">
